@@ -43,7 +43,7 @@ class BillboardManagerTest {
     }
 
     @Test
-    public void shouldBelowTenMovie(){
+    public void shouldBelowTenMovie() {
         MovieItem first = new MovieItem(1, 1, "first");
         MovieItem second = new MovieItem(2, 2, "second");
         MovieItem third = new MovieItem(3, 3, "third");
@@ -56,8 +56,16 @@ class BillboardManagerTest {
         manager.addMovie(fifth);
 
         MovieItem[] actual = manager.getLastAdded();
-        MovieItem[] expected = new MovieItem[]{fifth,fourth,third,second,first};
+        MovieItem[] expected = new MovieItem[]{fifth, fourth, third, second, first};
         assertArrayEquals(expected, actual);
-
     }
+
+    @Test
+    public void shouldNullArray() {
+
+        MovieItem[] actual = manager.getLastAdded();
+        MovieItem[] expected = new MovieItem[0];
+        assertArrayEquals(expected, actual);
+    }
+
 }
